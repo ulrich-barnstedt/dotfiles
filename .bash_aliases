@@ -1,5 +1,9 @@
 alias ll="ls -lah"
 alias pls='sudo $(history -p !!)'
-alias lg="ls -lah | lolcat -t"
+if [ "$TERM" = "xterm-256color" ]; then
+    alias lg="ls -lah | lolcat -t"
+else
+    alias lg="ls -lah"
+fi
 alias tetris="bastet"
 alias fartune="fortune | cowsay | lolcat -t"
