@@ -1,0 +1,3 @@
+[submodule "rainbowBash"]
+	path = rainbowBash
+	url = https://github.com/ulrich-barnstedt/rainbowBash.git
