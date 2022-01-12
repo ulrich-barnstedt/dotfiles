@@ -7,3 +7,5 @@ else
 fi
 alias tetris="bastet"
 alias fartune="fortune | cowsay | lolcat -t"
+alias ltree="tree -L 2"
+alias lgtree="tree -L 2 | lolcat -t"
