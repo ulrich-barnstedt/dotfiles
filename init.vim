@@ -8,6 +8,8 @@ call plug#end()
 colorscheme onedark
 let g:airline_section_z = 'Ln %l Col %c'
 let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 set nowrap
 set ruler
@@ -28,13 +30,20 @@ set background=dark
 set updatetime=300
 set timeoutlen=500
 set clipboard=unnamedplus
-
-" Numbers
+set hidden
 set number relativenumber
-augroup numbertoggle
-    autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
-augroup END
 
 map <C-Q> :NERDTree<CR>>
+autocmd VimEnter * NERDTree
+
+nnoremap <M-j>    :resize -2<CR>
+nnoremap <M-k>    :resize +2<CR>
+nnoremap <M-h>    :vertical resize +2<CR>
+nnoremap <M-l>    :vertical resize -2<CR>
+
+nnoremap <C-H>    :bprevious<CR>
+nnoremap <C-L>    :bnext<CR>
+nnoremap <C-Space>    :wincmd w<CR>
+
+nnoremap <C-S>    :bp <BAR> bd #<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
