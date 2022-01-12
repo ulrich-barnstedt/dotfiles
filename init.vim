@@ -4,6 +4,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
     Plug 'preservim/nerdtree'
+    Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 " Colorscheme and Airline settings
@@ -40,9 +41,15 @@ set number relativenumber
 
 " File tree
 map <C-T> :NERDTree<CR>>
-autocmd VimEnter * NERDTree
+autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd VimEnter * if argc() > 0 || exists("s:std_in") | wincmd p | endif
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI=1
 
 " Window / Buffer
 nnoremap <M-j>    :resize -2<CR>
