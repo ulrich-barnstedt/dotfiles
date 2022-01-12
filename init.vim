@@ -5,6 +5,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'preservim/nerdtree'
     Plug 'neovim/nvim-lspconfig'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " Colorscheme and Airline settings
@@ -63,3 +65,13 @@ nnoremap <C-Space>    :wincmd w<CR>
 " Save / Close
 nnoremap <C-Q>    :bp <BAR> bd #<CR>
 nnoremap <C-S>    :w<CR>
+
+" Fuzzy finder
+nnoremap <C-P>    :call FinderCheck() <BAR> :Files <CR>
+nnoremap <M-f>    :call FinderCheck() <BAR> :Lines <CR>
+
+function FinderCheck()
+    if bufname('#') =~ 'NERD_tree_\d\+' "&& bufname('%') !~ 'NERD_tree_\d\+'
+        execute "normal! \<C-W>w"
+    endif
+endfunction
