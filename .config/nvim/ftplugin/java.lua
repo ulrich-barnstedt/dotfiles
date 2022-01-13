@@ -1,4 +1,6 @@
-local config = {
+local coq = require "coq"
+
+local config = coq.lsp_ensure_capabilities({
   cmd = {
     'java',
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
@@ -25,6 +27,6 @@ local config = {
   init_options = {
     bundles = {}
   },
-}
+})
 
 require('jdtls').start_or_attach(config)
