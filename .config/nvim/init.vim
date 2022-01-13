@@ -81,3 +81,38 @@ function FinderCheck()
         execute "normal! \<C-W>w"
     endif
 endfunction
+
+" Java commands
+let java_path = "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
+let javac_path = "/usr/lib/jvm/java-8-openjdk-amd64/bin/javac"
+
+function JAVA_compileAll()
+    execute "!" . g:javac_path . " *.java"
+    " echo "Compiled all .java files."
+endfunction
+
+function JAVA_compileFile()
+    execute "!" . g:javac_path . " " . expand('%:t')
+    " echo "Compiled current java file."
+endfunction
+
+function JAVA_cleanDir()
+    execute "!rm *.class"
+    " echo "Cleaned directory."
+endfunction
+
+function JAVA_run()
+    execute "!" . g:java_path . " " . expand("%:r")
+endfunction
+
+command JavacA call JAVA_compileAll()
+command JavacF call JAVA_compileFile()
+command Ja JavacA
+command Jf JavacF
+
+command JavaClean call JAVA_cleanDir()
+
+command JavaRCA call JAVA_compileAll() | call JAVA_run()
+command JavaR call JAVA_run()
+command Jr JavaR
+command Jrc JavaRC
