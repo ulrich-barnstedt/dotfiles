@@ -115,4 +115,4 @@ command JavaClean call JAVA_cleanDir()
 command JavaRCA call JAVA_compileAll() | call JAVA_run()
 command JavaR call JAVA_run()
 command Jr JavaR
-command Jrc JavaRC
+command Jrc JavaRCA
