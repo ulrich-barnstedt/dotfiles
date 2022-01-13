@@ -7,6 +7,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'neovim/nvim-lspconfig'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'mfussenegger/nvim-jdtls'
 call plug#end()
 
 " Colorscheme and Airline settings
