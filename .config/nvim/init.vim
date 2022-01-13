@@ -8,7 +8,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'mfussenegger/nvim-jdtls'
+    Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+    Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 call plug#end()
+
+" Start coq
+let g:coq_settings = { 'auto_start': 'shut-up' }
 
 " Colorscheme and Airline settings
 colorscheme onedark
@@ -57,11 +62,11 @@ let NERDTreeMinimalUI=1
 " Window / Buffer
 nnoremap <M-j>    :resize -2<CR>
 nnoremap <M-k>    :resize +2<CR>
-nnoremap <M-h>    :vertical resize +2<CR>
-nnoremap <M-l>    :vertical resize -2<CR>
+nnoremap <M-l>    :vertical resize +2<CR>
+nnoremap <M-h>    :vertical resize -2<CR>
 nnoremap <C-H>    :bprevious<CR>
 nnoremap <C-L>    :bnext<CR>
-nnoremap <C-Space>    :wincmd w<CR>
+nnoremap <C-N>    :wincmd w<CR>
 
 " Save / Close
 nnoremap <C-Q>    :bp <BAR> bd #<CR>
