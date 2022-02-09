@@ -87,12 +87,12 @@ let java_path = "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
 let javac_path = "/usr/lib/jvm/java-8-openjdk-amd64/bin/javac"
 
 function JAVA_compileAll()
-    execute "!" . g:javac_path . " *.java"
+    execute "! find . -name *.java -print | xargs " . g:javac_path
     " echo "Compiled all .java files."
 endfunction
 
 function JAVA_compileFile()
-    execute "!" . g:javac_path . " " . expand('%:t')
+    execute "!" . g:javac_path . " " . expand('%')
     " echo "Compiled current java file."
 endfunction
 
