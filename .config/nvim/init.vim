@@ -43,6 +43,7 @@ set updatetime=300
 set timeoutlen=1000
 set clipboard=unnamedplus
 set hidden
+set scrolloff=2
 
 " Numbers
 set number relativenumber
