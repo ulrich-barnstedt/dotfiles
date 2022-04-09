@@ -1,0 +1,17 @@
+set scrolloff=5
+set incsearch
+map Q gq
+
+set visualbell
+set noerrorbells
+set clipboard+=unnamed
+set showmode
+
+set multiple-cursors
+set NERDTree
+
+map <C-Q> :NERDTree<CR>
+map \r <Action>(ReformatCode)
+
+:set relativenumber
+:set number
