@@ -33,4 +33,3 @@ cursor:
 
 key_bindings:
   - { key: V,              mods: Control, mode: ~Vi,        action: Paste            }
-  - { key: C,              mods: Control,                   action: Copy             }
