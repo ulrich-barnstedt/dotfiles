@@ -33,3 +33,6 @@ cursor:
 
 key_bindings:
   - { key: V,              mods: Control, mode: ~Vi,        action: Paste            }
+  - { key: F11, action: ToggleFullscreen } 
+  - { key: C,              mods: Control|Shift, mode: ~Vi,        action: Copy             }
+
