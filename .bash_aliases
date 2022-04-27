@@ -29,6 +29,7 @@ function fcd () {
     fi
 }
 
+alias reset="echo -ne '\x1b\x5b0\x20\x71'"
 alias ll="ls -lah"
 alias lsf="exa --group-directories-first -la"
 alias lfs="exa --group-directories-first -la"
