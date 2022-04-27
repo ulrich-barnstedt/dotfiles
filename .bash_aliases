@@ -8,8 +8,30 @@ function smbmount () {
     command sudo mount -t cifs -o username=ulrich.barnstedt //htldaten/$1 /home/ulrich/shares/$1
 }
 
+function ff () {
+    command find . -maxdepth ${2:-3} -name "*${1}*"
+}
+
+function fcd () {
+    dirName=$(find . -maxdepth ${2:-3} -name "*${1}*" | head -1) 
+   
+    if [ -z "$dirName"  ] && [ -z "${2}" ]
+    then 
+        echo "Incrementing search depth ..."
+        dirName=$(find . -maxdepth ${2:-6} -name "*${1}*" | head -1) 
+    fi
+    
+    if [ -z "$dirName" ] 
+    then 
+        echo "Not found"
+    else
+        command cd $dirName
+    fi
+}
+
 alias ll="ls -lah"
 alias lsf="exa --group-directories-first -la"
+alias lfs="exa --group-directories-first -la"
 alias lsfs="exa --group-directories-first -la --no-user --no-permissions --no-time --no-filesize"
 alias pls='sudo $(history -p !!)'
 if [ "$TERM" = "xterm-256color" ]; then
@@ -19,8 +41,8 @@ else
 fi
 alias tetris="bastet"
 alias fartune="fortune | cowsay | lolcat -t"
-alias ltree="tree -L 2"
-alias lgtree="tree -L 2 | lolcat -t"
+alias ltree="exa -T -L 2"
+alias lgtree="exa -T -L 2 | lolcat -t"
 alias v="nvim"
 alias alt="update-alternatives"
 alias javac8a="find . -name *.java -print | xargs /usr/lib/jvm/java-8-openjdk-amd64/bin/javac"
