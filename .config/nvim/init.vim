@@ -8,8 +8,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'mfussenegger/nvim-jdtls'
-    Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-    Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+    Plug 'andweeb/presence.nvim'
 call plug#end()
 
 " Start coq
@@ -21,6 +20,10 @@ let g:airline_section_z = 'Ln %l Col %c'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Discord-RPC settings
+let g:presence_neovim_image_text   = "Neovim"
+let g:presence_main_image          = "file"
 
 " Options
 set nowrap
