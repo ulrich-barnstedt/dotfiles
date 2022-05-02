@@ -13,12 +13,12 @@ function ff () {
 }
 
 function fcd () {
-    dirName=$(find . -maxdepth ${2:-3} -name "*${1}*" | head -1) 
+    dirName=$(find . -maxdepth ${2:-3} -type d -name "*${1}*" | head -1) 
    
     if [ -z "$dirName"  ] && [ -z "${2}" ]
     then 
         echo "Incrementing search depth ..."
-        dirName=$(find . -maxdepth ${2:-6} -name "*${1}*" | head -1) 
+        dirName=$(find . -maxdepth ${2:-6} -type d -name "*${1}*" | head -1) 
     fi
     
     if [ -z "$dirName" ] 
