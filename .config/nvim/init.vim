@@ -4,10 +4,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
     Plug 'preservim/nerdtree'
-    Plug 'neovim/nvim-lspconfig'
+    " Plug 'neovim/nvim-lspconfig'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'mfussenegger/nvim-jdtls'
+    " Plug 'mfussenegger/nvim-jdtls'
     Plug 'andweeb/presence.nvim'
 call plug#end()
 
@@ -54,7 +54,7 @@ set number relativenumber
 " File tree
 map <C-T> :NERDTree<CR>>
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | endif
+" autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | endif
 autocmd VimEnter * if argc() > 0 || exists("s:std_in") | wincmd p | endif
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
