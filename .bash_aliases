@@ -13,16 +13,16 @@ function ff () {
 }
 
 function fcd () {
-    dirName=$(find . -maxdepth ${2:-3} -type d -name "*${1}*" | head -1)
-
+    dirName=$(find . -maxdepth ${2:-3} -type d -name "*${1}*" | head -1) 
+   
     if [ -z "$dirName"  ] && [ -z "${2}" ]
-    then
+    then 
         echo "Incrementing search depth ..."
-        dirName=$(find . -maxdepth ${2:-6} -type d -name "*${1}*" | head -1)
+        dirName=$(find . -maxdepth ${2:-6} -type d -name "*${1}*" | head -1) 
     fi
-
-    if [ -z "$dirName" ]
-    then
+    
+    if [ -z "$dirName" ] 
+    then 
         echo "Not found"
     else
         command cd $dirName
@@ -53,7 +53,7 @@ alias lgtree="exa -T -L 2 | lolcat -t"
 alias v="nvim"
 alias alt="update-alternatives"
 alias javac8a="find . -name *.java -print | xargs /usr/lib/jvm/java-8-openjdk-amd64/bin/javac"
-alias update="cargo install-update -a && sudo apt update && sudo snap refresh && flatpak update && rustup update"
+alias update="sudo apt update && sudo apt upgrade -y && sudo snap refresh && flatpak update && rustup update && cargo install-update -a && brew update"
 alias dndg="(cd ~/Programming/Projects/JS/dnd-cli && node index.js c)"
 alias cp="cp -i"
 alias ite_kb="ite8291r3-ctl"
