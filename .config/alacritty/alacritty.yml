@@ -36,3 +36,7 @@ key_bindings:
   - { key: F11, action: ToggleFullscreen } 
   - { key: C,              mods: Control|Shift, mode: ~Vi,        action: Copy             }
 
+font:
+  normal:
+    family: JetBrainsMonoNL Nerd Font
+
